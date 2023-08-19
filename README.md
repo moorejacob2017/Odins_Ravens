@@ -29,8 +29,8 @@
 
 A crawler and parser pair for mapping and targeting web application attack surfaces.
 
-
-###### The Crawler
+___
+#### The Crawler
 ```
 usage: orav-crawler.py [-h] (-w WEBSITE | -f FILE) [-t THREADS] [-o OUTPUT] [-d DELAY]
 
@@ -48,8 +48,8 @@ options:
   -d DELAY, --delay DELAY
                         The time (in seconds) to wait between each HTTP request. Default is 0.
 ```
-
-###### The Parser
+___
+#### The Parser
 ```
 usage: orav-parser.py [-h] [--all-urls] [--urls-with-input] [--urls-with-queries] [--all-inputs] [--all-queries] [--all-headers] [--input-values INPUT_VALUES] [--query-values QUERY_VALUES] [--header-values HEADER_VALUES]
                       [--urls-with-specific-input URLS_WITH_SPECIFIC_INPUT] [--urls-with-specific-query URLS_WITH_SPECIFIC_QUERY] [--urls-with-header URLS_WITH_HEADER]
