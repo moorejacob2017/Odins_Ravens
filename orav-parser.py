@@ -15,7 +15,7 @@ def all_urls_with_input(data):
     return [url for url, info in data.items() if info['has_user_input']]
 
 
-def all_urls_with_query_parameters(data):
+def all_urls_with_queries(data):
     return [url for url, info in data.items() if info['query_parameters']]
 
 
@@ -26,7 +26,7 @@ def all_inputs(data):
     return list(inputs)
 
 
-def all_query_parameters(data):
+def all_queries(data):
     parameters = set()
     for info in data.values():
         parameters.update(info['query_parameters'].keys())
@@ -51,7 +51,7 @@ def all_urls_with_specific_input(data, input_name):
     return [url for url, info in data.items() if input_name in info['input_values']]
 
 
-def all_urls_with_specific_query_parameter(data, parameter_name):
+def all_urls_with_specific_query(data, parameter_name):
     return [url for url, info in data.items() if parameter_name in info['query_parameters']]
 
 
@@ -76,18 +76,18 @@ def all_urls_with_specific_header(data, header_name):
 def main():
     parser = argparse.ArgumentParser(description='Parse the serialized data from the website crawler.')
     parser.add_argument('file', type=str, help='The JSON file containing the serialized data.')
-    parser.add_argument('--all_urls', action='store_true', help='List all URLs.')
-    parser.add_argument('--urls_with_input', action='store_true', help='List all URLs with input.')
-    parser.add_argument('--urls_with_query_parameters', action='store_true', help='List all URLs with query parameters.')
-    parser.add_argument('--all_inputs', action='store_true', help='List all input names.')
-    parser.add_argument('--all_query_parameters', action='store_true', help='List all query parameter names.')
-    parser.add_argument('--all_headers', action='store_true', help='List all headers.')
-    parser.add_argument('--input_values', type=str, help='List all values of a specific input.')
-    parser.add_argument('--query_parameter_values', type=str, help='List all values of a specific query parameter.')
-    parser.add_argument('--header_values', type=str, help='List all values of a specific header.')
-    parser.add_argument('--urls_with_specific_input', type=str, help='List all URLs with a specific input.')
-    parser.add_argument('--urls_with_specific_query_parameter', type=str, help='List all URLs with a specific query parameter.')
-    parser.add_argument('--urls_with_header', type=str, help='List all URLs with a specific header.')
+    parser.add_argument('--all-urls', action='store_true', help='List all URLs.')
+    parser.add_argument('--urls-with-input', action='store_true', help='List all URLs with input.')
+    parser.add_argument('--urls-with-queries', action='store_true', help='List all URLs with query parameters.')
+    parser.add_argument('--all-inputs', action='store_true', help='List all input names.')
+    parser.add_argument('--all-queries', action='store_true', help='List all query parameter names.')
+    parser.add_argument('--all-headers', action='store_true', help='List all headers.')
+    parser.add_argument('--input-values', type=str, help='List all values of a specific input.')
+    parser.add_argument('--query-values', type=str, help='List all values of a specific query parameter.')
+    parser.add_argument('--header-values', type=str, help='List all values of a specific header.')
+    parser.add_argument('--urls-with-specific-input', type=str, help='List all URLs with a specific input.')
+    parser.add_argument('--urls-with-specific-query', type=str, help='List all URLs with a specific query parameter.')
+    parser.add_argument('--urls-with-header', type=str, help='List all URLs with a specific header.')
 
     args = parser.parse_args()
 
@@ -97,20 +97,20 @@ def main():
         print(all_urls(data))
     if args.urls_with_input:
         print(all_urls_with_input(data))
-    if args.urls_with_query_parameters:
-        print(all_urls_with_query_parameters(data))
+    if args.urls_with_queries:
+        print(all_urls_with_queries(data))
     if args.all_inputs:
         print(all_inputs(data))
-    if args.all_query_parameters:
-        print(all_query_parameters(data))
+    if args.all_queries:
+        print(all_queries(data))
     if args.input_values:
         print(all_values_of_specific_input(data, args.input_values))
-    if args.query_parameter_values:
-        print(all_values_of_specific_query_parameter(data, args.query_parameter_values))
+    if args.query_values:
+        print(all_values_of_specific_query_parameter(data, args.query_values))
     if args.urls_with_input:
         print(all_urls_with_specific_input(data, args.urls_with_input))
     if args.urls_with_query_parameter:
-        print(all_urls_with_specific_query_parameter(data, args.urls_with_query_parameter))
+        print(all_urls_with_specific_query(data, args.urls_with_query_parameter))
     if args.all_headers:
         print(all_headers(data))
     if args.header_values:
