@@ -51,9 +51,7 @@ options:
 ___
 #### The Parser
 ```
-usage: orav-parser.py [-h] [--all-urls] [--urls-with-input] [--urls-with-queries] [--all-inputs] [--all-queries] [--all-headers] [--input-values INPUT_VALUES] [--query-values QUERY_VALUES] [--header-values HEADER_VALUES]
-                      [--urls-with-specific-input URLS_WITH_SPECIFIC_INPUT] [--urls-with-specific-query URLS_WITH_SPECIFIC_QUERY] [--urls-with-header URLS_WITH_HEADER]
-                      file
+usage: orav-parser.py [-h] [-a] [-ai] [-aq] [-ah] [-ui] [-uq] [-vi INPUT_VALUE] [-vq QUERY_VALUE] [-vh HEADER_VALUE] [-uvi INPUT_VALUE] [-uvq QUERY_VALUE] [-uvh HEADER_VALUE] file
 
 Parse the serialized data from the website crawler.
 
@@ -62,22 +60,24 @@ positional arguments:
 
 options:
   -h, --help            show this help message and exit
-  --all-urls            List all URLs.
-  --urls-with-input     List all URLs with input.
-  --urls-with-queries   List all URLs with query parameters.
-  --all-inputs          List all input names.
-  --all-queries         List all query parameter names.
-  --all-headers         List all headers.
-  --input-values INPUT_VALUES
+  -a, --all-urls        List all URLs.
+  -ai, --all-inputs     List all input names.
+  -aq, --all-queries    List all query parameter names.
+  -ah, --all-headers    List all headers.
+  -ui, --urls-with-input
+                        List all URLs with input.
+  -uq, --urls-with-queries
+                        List all URLs with query parameters.
+  -vi INPUT_VALUE, --input-values INPUT_VALUE
                         List all values of a specific input.
-  --query-values QUERY_VALUES
+  -vq QUERY_VALUE, --query-values QUERY_VALUE
                         List all values of a specific query parameter.
-  --header-values HEADER_VALUES
+  -vh HEADER_VALUE, --header-values HEADER_VALUE
                         List all values of a specific header.
-  --urls-with-specific-input URLS_WITH_SPECIFIC_INPUT
+  -uvi INPUT_VALUE, --urls-with-specific-input INPUT_VALUE
                         List all URLs with a specific input.
-  --urls-with-specific-query URLS_WITH_SPECIFIC_QUERY
+  -uvq QUERY_VALUE, --urls-with-specific-query QUERY_VALUE
                         List all URLs with a specific query parameter.
-  --urls-with-header URLS_WITH_HEADER
+  -uvh HEADER_VALUE, --urls-with-header HEADER_VALUE
                         List all URLs with a specific header.
 ```

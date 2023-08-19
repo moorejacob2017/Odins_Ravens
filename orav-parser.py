@@ -76,18 +76,22 @@ def all_urls_with_specific_header(data, header_name):
 def main():
     parser = argparse.ArgumentParser(description='Parse the serialized data from the website crawler.')
     parser.add_argument('file', type=str, help='The JSON file containing the serialized data.')
-    parser.add_argument('--all-urls', action='store_true', help='List all URLs.')
-    parser.add_argument('--urls-with-input', action='store_true', help='List all URLs with input.')
-    parser.add_argument('--urls-with-queries', action='store_true', help='List all URLs with query parameters.')
-    parser.add_argument('--all-inputs', action='store_true', help='List all input names.')
-    parser.add_argument('--all-queries', action='store_true', help='List all query parameter names.')
-    parser.add_argument('--all-headers', action='store_true', help='List all headers.')
-    parser.add_argument('--input-values', type=str, help='List all values of a specific input.')
-    parser.add_argument('--query-values', type=str, help='List all values of a specific query parameter.')
-    parser.add_argument('--header-values', type=str, help='List all values of a specific header.')
-    parser.add_argument('--urls-with-specific-input', type=str, help='List all URLs with a specific input.')
-    parser.add_argument('--urls-with-specific-query', type=str, help='List all URLs with a specific query parameter.')
-    parser.add_argument('--urls-with-header', type=str, help='List all URLs with a specific header.')
+    parser.add_argument('-a', '--all-urls', action='store_true', help='List all URLs.')
+
+    parser.add_argument('-ai', '--all-inputs', action='store_true', help='List all input names.')
+    parser.add_argument('-aq', '--all-queries', action='store_true', help='List all query parameter names.')
+    parser.add_argument('-ah', '--all-headers', action='store_true', help='List all headers.')
+
+    parser.add_argument('-ui', '--urls-with-input', action='store_true', help='List all URLs with input.')
+    parser.add_argument('-uq', '--urls-with-queries', action='store_true', help='List all URLs with query parameters.')
+
+    parser.add_argument('-vi', '--input-values', metavar='INPUT_VALUE', type=str, help='List all values of a specific input.')
+    parser.add_argument('-vq', '--query-values', metavar='QUERY_VALUE', type=str, help='List all values of a specific query parameter.')
+    parser.add_argument('-vh', '--header-values', metavar='HEADER_VALUE', type=str, help='List all values of a specific header.')
+
+    parser.add_argument('-uvi', '--urls-with-specific-input', metavar='INPUT_VALUE', type=str, help='List all URLs with a specific input.')
+    parser.add_argument('-uvq', '--urls-with-specific-query', metavar='QUERY_VALUE', type=str, help='List all URLs with a specific query parameter.')
+    parser.add_argument('-uvh', '--urls-with-header', metavar='HEADER_VALUE', type=str, help='List all URLs with a specific header.')
 
     args = parser.parse_args()
 
